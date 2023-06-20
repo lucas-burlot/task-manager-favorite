@@ -85,7 +85,7 @@ services:
       timeout: 10s
       retries: 5
 
-  task-api:
+  faovorite-api:
     image: gplane/pnpm:node18
     working_dir: /app
     volumes:
