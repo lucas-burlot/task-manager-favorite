@@ -35,6 +35,11 @@ services:
       file: ./compose/compose.published.yml
       service: task-api
 
+  favorite-api:
+  extends:
+    file: ./compose/compose.published.yml
+    service: favorite-api
+
   front:
     extends:
       file: ./compose/compose.published.yml
