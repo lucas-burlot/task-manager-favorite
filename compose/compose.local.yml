@@ -86,13 +86,13 @@ services:
       retries: 5
 
   favorite-api:
-    image: gplane/pnpm:node18
+    image: node
     working_dir: /app
     volumes:
       - ../favorite-api:/app/
       - ../local/certs:/certs
       - /app/node_modules
-      - /app/.pnpm-store
+      - /app/.npm
     environment:
       - MYSQL_URL=mysql://root:passwd@mariadb:3306/favorite
       - insecure=false
@@ -103,7 +103,7 @@ services:
       - ROOT_CA=/certs/rootCA.pem
       - JAEGER_URL=http://tracing:14268/api/traces
     ports:
-      - 4000:4000
+      - 4003:4000
     stdin_open: true
     command: start:dev
     healthcheck:
