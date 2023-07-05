@@ -13,8 +13,6 @@ export interface Favorite {
 
 export interface FetchFavoriteRequest {
   userId: number;
-  taskId: number;
-  favoriteId: number;
 }
 
 export interface FetchFavoriteResponse {
@@ -80,4 +78,4 @@ export function FavoriteServiceControllerMethods() {
   };
 }
 
-export const FAVORITE_SERVICE_NAME = "FavoriteService";
+export const FAVORITE_SERVICE_NAME = "favorite";
