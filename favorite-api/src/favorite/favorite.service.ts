@@ -13,13 +13,14 @@ export class FavoriteService {
     });
   }
 
-  create(user_id: number, task_id: number): Promise<any> {
-    return this.prisma.favorite.create({
+  async create(user_id: number, task_id: number): Promise<any> {
+    const favorite = await this.prisma.favorite.create({
       data: {
         user_id: user_id,
         task_id: task_id,
       },
     });
+    return favorite;
   }
 
   delete(favorite_id: number): Promise<any> {

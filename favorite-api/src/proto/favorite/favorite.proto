@@ -19,7 +19,7 @@ message FetchFavoriteRequest {
 }
 
 message FetchFavoriteResponse {
-  Favorite favorites = 1;
+  repeated Favorite favorites = 1;
 }
 
 message CreateFavoriteRequest {

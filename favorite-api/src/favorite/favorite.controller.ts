@@ -22,7 +22,18 @@ export class FavoriteController {
     if (favorites.length === 0) {
       throw new RpcException('No favorites found for the specified user');
     }
-    return { favorites: [favorites] };
+
+    // Destructure the favorites array and return a new array of objects
+    const favoritesArray = favorites.map((favorite) => {
+      return {
+        id: favorite.id,
+        userId: favorite.user_id,
+        taskId: favorite.task_id,
+      };
+    });
+    return {
+      favorites: favoritesArray,
+    };
   }
 
   @GrpcMethod('FavoriteService', 'CreateFavorite')
@@ -36,7 +47,13 @@ export class FavoriteController {
     if (!favorite) {
       throw new RpcException('No favorite found for the specified id');
     }
-    return { favorites: favorite };
+    return {
+      favorites: {
+        id: favorite.id,
+        userId: favorite.user_id,
+        taskId: favorite.task_id,
+      },
+    };
   }
 
   @GrpcMethod('FavoriteService', 'DeleteFavorite')
@@ -47,6 +64,12 @@ export class FavoriteController {
     if (!favorite) {
       throw new RpcException('No favorite found for the specified id');
     }
-    return { favorites: favorite };
+    return {
+      favorites: {
+        id: favorite.id,
+        userId: favorite.user_id,
+        taskId: favorite.task_id,
+      },
+    };
   }
 }
