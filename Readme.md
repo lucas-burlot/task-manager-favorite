@@ -1,5 +1,10 @@
 # gRPC Task Manager
 
+## INFOS
+### 2 API DOMAINS :
+    - favorite-api (We can put a task in favorite)
+    - urgent-api (We can put a task in urgent)
+
 ## Installation
 
 ### Create the docker network
