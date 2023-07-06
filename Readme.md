@@ -2,8 +2,21 @@
 
 ## INFOS
 ### 2 API DOMAINS :
-    - favorite-api (We can put a task in favorite)
-    - urgent-api (We can put a task in urgent)
+    - favorite-api 
+        -> Bonus : Dockerfile for the favorite-api
+        -> Bonus : Trying to use Observability with OpenTelemetry
+
+        -> We can put a task in favorite 
+        -> We can remove a task from favorite
+        -> We can get all favorite tasks
+
+    - urgent-api
+        -> Bonus : Dockerfile for the favorite-api
+        -> Bonus : Trying to use Observability with OpenTelemetry
+        
+        -> We can put a task in urgent 
+        -> We can remove a task from urgent
+        -> We can get all urgent tasks
 
 ## Installation
 

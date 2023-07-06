@@ -40,6 +40,11 @@ services:
       file: ./compose/compose.local.yml
       service: favorite-api
 
+  urgent-api:
+    extends:
+      file: ./compose/compose.local.yml
+      service: urgent-api
+
   front:
     extends:
       file: ./compose/compose.published.yml
