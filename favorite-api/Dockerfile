@@ -12,6 +12,4 @@ RUN nest build
 
 ENV NODE_ENV=production
 
-COPY src/proto dist/proto
-
 CMD npm start:prod
