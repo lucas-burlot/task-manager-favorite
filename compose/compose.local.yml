@@ -105,7 +105,7 @@ services:
     ports:
       - 4003:4000
     stdin_open: true
-    command: start:dev
+    command: bash -c "npm i && npm run start:dev"
     healthcheck:
       test: [ "CMD", "curl", "-f", "http://localhost:3000/health" ]
       interval: 5s

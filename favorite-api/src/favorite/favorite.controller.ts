@@ -40,6 +40,16 @@ export class FavoriteController {
   async CreateFavorite(
     request: CreateFavoriteRequest,
   ): Promise<CreateFavoriteResponse> {
+    const fetchFavorite = await this.favoriteService.fetch(request.userId);
+    const favoriteFind = fetchFavorite.find(
+      (favorite) =>
+        favorite.task_id === request.taskId &&
+        favorite.user_id === request.userId,
+    );
+    if (favoriteFind) {
+      throw new RpcException('Urgent already exists');
+    }
+
     const favorite = await this.favoriteService.create(
       request.userId,
       request.taskId,

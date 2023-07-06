@@ -1,0 +1,42 @@
+syntax = "proto3";
+
+package favorite;
+
+message Favorite {
+  int32 id = 1;
+  int32 task_id = 2;
+  int32 user_id = 3;
+}
+
+service FavoriteService {
+  rpc FetchFavorites(FetchFavoriteRequest) returns (FetchFavoriteResponse) {}; // récupérer tous les favoris
+  rpc CreateFavorite(CreateFavoriteRequest) returns (CreateFavoriteResponse) {}; // créer un favoris
+  rpc DeleteFavorite(DeleteFavoriteRequest) returns (DeleteFavoriteResponse) {}; // supprimer un favoris
+}
+
+message FetchFavoriteRequest {
+  int32 user_id = 1;
+  int32 task_id = 2;
+  int32 favorite_id = 3;
+}
+
+message FetchFavoriteResponse {
+  repeated Favorite favorites = 1;
+}
+
+message CreateFavoriteRequest {
+  int32 task_id = 1;
+  int32 user_id = 2;
+}
+
+message CreateFavoriteResponse {
+  Favorite favorites = 1;
+}
+
+message DeleteFavoriteRequest {
+  int32 id = 1;
+}
+
+message DeleteFavoriteResponse {
+  Favorite favorites = 1;
+}
